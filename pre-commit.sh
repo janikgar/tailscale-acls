@@ -22,3 +22,4 @@ then
 fi
 
 yq -o json . ./*yaml | jq -s '.[0] * .[1]' > final.json
+echo "Updated final.json"
