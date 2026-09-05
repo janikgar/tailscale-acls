@@ -19,7 +19,7 @@ jobs:
         uses: tailscale/gitops-acl-action@v1
         with:
           oauth-client-id: ${{ secrets.TS_OAUTH_ID }}
-          audience: ${{ secrets.TS_AUDIENCE }}
+          oauth-client-secret: ${{ secrets.TS_OAUTH_SECRET }}
           tailnet: ${{ secrets.TS_TAILNET }}
           policy-file: final.json
           action: apply
@@ -30,7 +30,7 @@ jobs:
         uses: tailscale/gitops-acl-action@v1
         with:
           oauth-client-id: ${{ secrets.TS_OAUTH_ID }}
-          audience: ${{ secrets.TS_AUDIENCE }}
+          oauth-client-secret: ${{ secrets.TS_OAUTH_SECRET }}
           tailnet: ${{ secrets.TS_TAILNET }}
           policy-file: final.json
           action: test
