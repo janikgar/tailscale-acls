@@ -1,0 +1,69 @@
+{
+  "grants": [
+    {
+      "src": [
+        "*"
+      ],
+      "dst": [
+        "tag:k8s-operator"
+      ],
+      "ip": [
+        "tcp:443"
+      ]
+    }
+  ],
+  "ssh": [
+    {
+      "action": "check",
+      "src": [
+        "autogroup:member"
+      ],
+      "dst": [
+        "autogroup:self"
+      ],
+      "users": [
+        "autogroup:nonroot",
+        "root"
+      ]
+    }
+  ],
+  "tagOwners": {
+    "tag:nas": [
+      "autogroup:admin"
+    ],
+    "tag:k8s-operator": [
+      "autogroup:admin"
+    ],
+    "tag:k8s": [
+      "tag:k8s-operator"
+    ]
+  },
+  "autoApprovers": {
+    "services": {
+      "tag:k8s": [
+        "tag:k8s"
+      ]
+    }
+  },
+  "acls": [
+    {
+      "action": "accept",
+      "src": [
+        "*"
+      ],
+      "dst": [
+        "*:*"
+      ]
+    }
+  ],
+  "nodeAttrs": [
+    {
+      "target": [
+        "tag:k8s"
+      ],
+      "attr": [
+        "funnel"
+      ]
+    }
+  ]
+}
